@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                </div>
+                
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+  <form method="POST" class="signup-form">
+        {% csrf_token %}
+        
+        <div class="signup-header">
+            <h1>Get Started!</h1>
+        </div>
+        <div class="signup-container">
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="first_name"><b>First Name</b></label>
+            <input type="text" placeholder="Enter First Name" name="first_name" required>
+
+            <label for="last_name"><b>Last Name</b></label>
+            <input type="text" placeholder="Enter Last Name" name="last_name" required>
+
+            <label for="email"><b>Email ID</b></label>
+            <input type="text" placeholder="Enter Email ID" name="email" required>
+
+            <label for="password1"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password1" required>
+
+            <label for="password2"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Re-enter Password" name="password2" required>
+
+            <br>
+
+            <button class="button" type="submit">SIGN UP</button>
+            </div>
+    </form>
+{% endblock %}

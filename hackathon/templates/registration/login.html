@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<form method="POST" class="signup-form">
+        {% csrf_token %}
+        <div class="signup-header">
+            <h1>Welcome back!</h1>
+        </div>
+        
+        <div class="signup-container">
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <br>
+
+            <button class="button" type="submit">SIGN IN</button>
+        </div>
+    </form>
+{% endblock %}

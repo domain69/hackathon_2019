@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block title%} SignIn {% endblock %}
+{% block content%}
+    <div class="login-form">
+            <div class="login-header">
+                    <h1>Welcome back!</h1>
+                    <p>Sign In to get started and discover new things.</p>
+                </div>
+                <div class="login-options">
+                    <div class="button-text" id="facebook-button">
+                        <a href="{% url 'social:begin' 'facebook' %}">
+                            Continue with Facebook
+                        </a>
+                    </div>
+                    <div class="button-text" id="instagram-button">
+                        <a href="{% url 'social:begin' 'instagram' %}">
+                            Continue with Instagram
+                        </a>
+                    </div>
+                    <div class="button-text" id="twitter-button">
+                        <a href="{% url 'social:begin' 'twitter' %}">
+                            Continue with Twitter
+                        </a>
+                    </div>
+                </div>
+    </div>
+{% endblock %}

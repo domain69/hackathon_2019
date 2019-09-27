@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+
+{% block content%}
+<div class="settings-form">
+    <div class="settings-header">
+        <h1>Connected Accounts</h1>
+    </div>
+    <div class="settings-account">
+        <h3>Facebook</h3>
+        {% if facebook_login %}
+        
+            <p class="username1">{{ facebook_login.extra_data.id }}</p>
+            {% if can_disconnect %}
+                    <form method="post" action="{% url 'social:disconnect' 'facebook' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="settings-logout">Log out</button>
+                    </form>
+            {% else %}
+                    <button type="button" disabled>Log out</button>
+                    <p style="color: red">You must <a href="{% url 'main:password' %}">define a password</a> for your account before disconnecting from Facebook.</p>
+            {% endif %}
+
+        {% else %}
+        <br>
+        <div class="settings-signin">
+            <a href="{% url 'social:begin' 'facebook' %}">
+                Connect Facebook
+            </a>
+        </div>
+        {% endif %}   
+    </div>
+    <div class="settings-account">
+        <h3>Instagram</h3>
+        {% if instagram_login %}
+        
+        <p class="username1">@{{ instagram_login.extra_data.user.username }}</p>
+        {% if can_disconnect %}
+                    <form method="post" action="{% url 'social:disconnect' 'instagram' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="settings-logout">Log out</button>
+                    </form>
+            {% else %}
+                    <button type="button" disabled>Log out</button>
+                    <p style="color: red">You must <a href="{% url 'main:password' %}">define a password</a> for your account before disconnecting from Facebook.</p>
+            {% endif %}
+        {% else %}
+        <br>
+        <div class="settings-signin">
+            <a href="{% url 'social:begin' 'instagram' %}">
+                Connect Instagram
+            </a>
+        </div>
+        {% endif %}   
+    </div>
+    <div class="settings-account">
+        <h3>Twitter</h3>
+        {% if twitter_login %}
+        
+            <p class="username1">@{{ twitter_login.extra_data.access_token.screen_name }}</p>
+            {% if can_disconnect %}
+                    <form method="post" action="{% url 'social:disconnect' 'twitter' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="settings-logout">Log out</button>
+                    </form>
+            {% else %}
+                    <button type="button" disabled>Log out</button>
+                    <p style="color: red">You must <a href="{% url 'main:password' %}">define a password</a> for your account before disconnecting from Facebook.</p>
+            {% endif %}
+        {% else %}
+        <br>
+        <div class="settings-signin">
+            <a href="{% url 'social:begin' 'twitter' %}">
+                Connect Twitter
+            </a>
+        </div>
+        {% endif %}   
+    </div>
+</div>
+{% endblock %}

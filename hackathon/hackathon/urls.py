@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('chat_bot.urls')),
     path('',include('main.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
 ]

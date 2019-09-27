@@ -1,0 +1,268 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.navbar ul li a {
+  font-size: 1rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.5rem 1.3rem;
+  transition: all 0.25s ease-out 0s;
+}
+
+.btn-primary {
+  font-size: 1rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.5rem 1.3rem;
+  transition: all 0.25s ease-out 0s;
+}
+
+.developer-info {
+  padding-top: 40px;
+}
+  
+.developer-profile {
+  margin-top: 20px;
+}
+  
+footer {
+  background: #222222;
+  text-align: center;
+}
+  
+.avatar {
+  vertical-align: middle;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+  
+.developer {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+  
+.developer-info:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+.developer-info .developer-header h1 {
+  color: #ffffff;
+}
+  
+.developer-info .developer-header p {
+  color: hsla(0,0%,100%,.6);
+}
+  
+.developer-info .developer h3 {
+  color: #ffffff;
+}
+  
+.site-info {
+  margin-top: 15px; 
+  padding-bottom: 15px;
+}
+  
+.site-info p {
+  color: hsla(0,0%,100%,.6);
+}
+  
+.site-info a {
+  color: hsla(0,0%,100%,.6);
+}
+  
+.site-info a:hover {
+  color: #0A5EBD;
+}
+
+@media (max-width: 710px) {
+  .developer-info .developer-header p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 710px) {
+  .developer-info .developer h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 710px) {
+  .site-info p {
+    font-size: 0.75rem;
+  }
+}
+
+/* SignIn */
+.login-form{
+  width: 360px;
+  background: #f1f1f1;
+  position: relative;
+  margin: 50px auto 100px;
+  padding: 50px 40px;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h1{
+  text-align: center;
+  font-size: 26px;
+  line-height: 32px;
+}
+
+.login-form p{
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+#facebook-button a, #instagram-button a, #twitter-button a {
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  background-size: 200%;
+  color: rgba(0, 0, 0, 0.84);
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.button-text {
+  margin-top: 10px;
+}
+
+.button-text a {
+  display: inline-block;
+  align-items: center;
+  padding: 13px 0 0 65px;
+}
+
+/* Settings */
+.settings-form{
+  width: 500px;
+  background: #f1f1f1;
+  position: relative;
+  margin: 50px auto 100px;
+  padding: 50px 40px;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.settings-account {
+  margin-top: 25px;
+}
+
+.settings-account h3 {
+  font-size: 1rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: rgba(0, 0, 0, 0.84);
+}
+
+.settings-account p {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.settings-signin {
+  width: 35%;
+  height: 40px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  background-size: 200%;
+  background-color: #007bff;
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.settings-logout {
+  width: 30%;
+  height: 40px;
+  font-size: 15px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  background-size: 200%;
+  color: rgba(0, 0, 0, 0.84);
+  outline: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.settings-signin, .settings-logout {
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.settings-signin a {
+  display: inline-block;
+  align-items: center;
+  padding: 10px 0 0 5px;
+  color: #fff;
+}
+
+.settings-logout a {
+  display: inline-block;
+  align-items: center;
+  padding: 10px 0 0 35px;
+}
+
+/* Index */
+.hero-banner h1 {
+  text-transform: uppercase;
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 50px;
+}
+
+.hero-banner p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #888888;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.667;
+}
+
+.button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 30px;
+  padding: 8px 25px;
+  text-transform: capitalize;
+  transition: all 0.3s ease 0s;
+}
+
+@media (max-width: 991px) {
+  .hero-banner h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hero-banner h1 {
+    font-size: 30px;
+  }
+}

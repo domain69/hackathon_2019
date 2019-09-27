@@ -39,7 +39,6 @@ def settings(request):
 
     can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
 
-    print(facebook_login,twitter_login,instagram_login)
 
     return render(request, 'main/setting.html', {
         'twitter_login': twitter_login,

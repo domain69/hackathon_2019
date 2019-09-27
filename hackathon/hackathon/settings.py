@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'hackathon.wsgi.application'
 LOGIN_URL = 'main:login'
 LOGOUT_URL = 'main:logout'
 LOGIN_REDIRECT_URL = 'main:home'
-
+LOGOUT_REDIRECT_URL = 'main:index'
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'

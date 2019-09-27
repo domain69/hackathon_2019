@@ -1,11 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import update_session_auth_hash
+
+from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm, UserCreationForm
+from django.contrib.auth import update_session_auth_hash, login as auth_login, authenticate
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.views import generic
-from django.urls import reverse_lazy
+from .forms import SignUpForm
 
 from social_django.models import UserSocialAuth
 
@@ -17,6 +16,9 @@ def index(request):
 @login_required
 def home(request):
     return render(request,'main/index.html')
+
+def connect(request):
+    return render(request,'main/connect.html')
 
 def login(request):
     return render(request,'main/login.html')
@@ -70,7 +72,18 @@ def password(request):
         form = PasswordForm(request.user)
     return render(request, 'main/password.html', {'form': form})
 
-class SignUp(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'main/signup.html'
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            auth_login(request, user)
+            return redirect('main:home')
+    else:
+        form = SignUpForm()
+    return render(request, 'main/signup.html', {'form': form})
+

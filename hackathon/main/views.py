@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm, UserCreationForm
 from django.contrib.auth import update_session_auth_hash, login as auth_login, authenticate
 from django.contrib import messages
@@ -71,6 +72,7 @@ def password(request):
         form = PasswordForm(request.user)
     return render(request, 'main/password.html', {'form': form})
 
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -84,3 +86,4 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'main/signup.html', {'form': form})
+

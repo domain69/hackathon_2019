@@ -1,8 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.views import generic
+from django.urls import reverse_lazy
 
 from social_django.models import UserSocialAuth
 
@@ -66,3 +69,8 @@ def password(request):
     else:
         form = PasswordForm(request.user)
     return render(request, 'main/password.html', {'form': form})
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'main/signup.html'

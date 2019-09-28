@@ -4,8 +4,8 @@ from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeFor
 from django.contrib.auth import update_session_auth_hash, login as auth_login, authenticate
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
-
+from .forms import SignUpForm,SignUpForm1
+from .models import Client,Psychologist
 from social_django.models import UserSocialAuth
 
 
@@ -73,7 +73,10 @@ def password(request):
     return render(request, 'main/password.html', {'form': form})
 
 
-def signup(request):
+def selection(request):
+    return render(request,'main/selection.html')
+
+def client(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -81,9 +84,29 @@ def signup(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
+            client_new = Client(user = user)
+            client_new.save()
             auth_login(request, user)
             return redirect('main:home')
     else:
         form = SignUpForm()
     return render(request, 'main/signup.html', {'form': form})
 
+def psychologist(request):
+    if request.method == 'POST':
+        form = SignUpForm1(request.POST)
+        print(form)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            highest_qualifications = form.cleaned_data.get('highest_qualifications')
+            Clinic_location = form.cleaned_data.get('Clinic_location')
+            user = authenticate(username=username, password=raw_password)
+            psychologist_new = Psychologist(user=user,highest_qualifications = highest_qualifications ,Clinic_location = Clinic_location)
+            psychologist_new.save()
+            auth_login(request, user)
+            return redirect('main:home')
+    else:
+        form = SignUpForm1()
+    return render(request, 'main/signup_psychologist.html', {'form': form})

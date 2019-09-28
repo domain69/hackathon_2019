@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block title%} {% endblock %}
+{% block content %}
+
+<div class="selection-form">
+        <div class="selection-header">
+            <h1>ARE YOU A ?</h1>
+        </div>
+    
+        <div class="login-options">
+            <div class="button-text-selection1" id="client-button">
+                <a href="{% url 'main:client'%}">
+                    CLIENT
+                </a>
+            </div>
+            <div class="button-text-selection2" id="psychologist-button">
+                <a href="{% url 'main:psychologist'%}">
+                    PSYCHOLOGIST
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

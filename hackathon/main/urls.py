@@ -11,7 +11,11 @@ urlpatterns = [
     path('settings/',views.settings,name='settings'),
     path('password/',views.password,name='password'),
 
-    path('signup/',views.signup,name="signup"),
-    path('logout/',auth_view.LogoutView.as_view(),name="logout")
+    # path('signup/',views.signup,name="signup"),
+    path('signup/',views.selection,name="selection"),
+    path('logout/',auth_view.LogoutView.as_view(),name="logout"),
+
+    path('signup/client',views.client,name="client"),
+    path('signup/psychologist',views.psychologist,name="psychologist"),
     
 ]

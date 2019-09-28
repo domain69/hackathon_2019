@@ -17,5 +17,7 @@ urlpatterns = [
 
     path('signup/client',views.client,name="client"),
     path('signup/psychologist',views.psychologist,name="psychologist"),
-    
+    path('facebook/',views.facebook_login,name='facebook'),
+    path('happy/',views.happy,name='happy'),
+    path('sad/',views.sad,name='sad')
 ]

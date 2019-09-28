@@ -51,7 +51,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #27ae60;
+  background: white;
   font-family: "proxima-nova", "Source Sans Pro", sans-serif;
   font-size: 1em;
   letter-spacing: 0.1px;
@@ -82,7 +82,7 @@
   max-width: 340px;
   width: 40%;
   height: 100%;
-  background: #2c3e50;
+  background: #007bff;
   color: #f5f5f5;
   overflow: hidden;
   position: relative;
@@ -544,20 +544,20 @@
 }
 #frame .content {
   float: right;
-  width: 60%;
+  width: 90%;
   height: 100%;
   overflow: hidden;
   position: relative;
 }
 @media screen and (max-width: 735px) {
   #frame .content {
-    width: calc(100% - 58px);
+    width: calc(100% );
     min-width: 300px !important;
   }
 }
 @media screen and (min-width: 900px) {
   #frame .content {
-    width: calc(100% - 340px);
+    width: calc(100% );
   }
 }
 #frame .content .contact-profile {
@@ -731,57 +731,11 @@ Website: http://emilcarlsson.se/
 -->
 
 <div id="frame">
-	<div id="sidepanel">
-		<div id="profile">
-			<div class="wrap">
-				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-				<p>Mike Ross</p>
-				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
-				<div id="status-options">
-					<ul>
-						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
-						<li id="status-away"><span class="status-circle"></span> <p>Away</p></li>
-						<li id="status-busy"><span class="status-circle"></span> <p>Busy</p></li>
-						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
-					</ul>
-				</div>
-				<div id="expanded">
-					<label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="mikeross" />
-					<label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="ross81" />
-					<label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
-					<input name="twitter" type="text" value="mike.ross" />
-				</div>
-			</div>
-		</div>
-		<div id="search">
-			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-			<input type="text" placeholder="Search contacts..." />
-		</div>
-		<div id="contacts">
-			<ul>
-				<li class="contact">
-					<div class="wrap">
-						<span class="contact-status"></span>
-						<img src="http://emilcarlsson.se/assets/jonathansidwell.png" alt="" />
-						<div class="meta">
-							<p class="name">Howdy</p>
-							<p class="preview"><span>Bot</span></p>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<div id="bottom-bar">
-			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
-			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
-		</div>
-	</div>
+	
 	<div class="content">
 		<div class="contact-profile">
 			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-			<p>Harvey Specter</p>
+			<p>{{username}}</p>
 			<div class="social-media">
 				<i class="fa fa-facebook" aria-hidden="true"></i>
 				<i class="fa fa-twitter" aria-hidden="true"></i>

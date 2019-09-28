@@ -7,8 +7,11 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm,SignUpForm1
 from .models import Client,Psychologist
 from social_django.models import UserSocialAuth
+import pickle
+import requests
 
-
+mnb = pickle.load(open('mnb.pkl','rb'))
+tfidf = pickle.load(open('tfidf.pkl','rb'))
 # Create your views here.
 def index(request):
     return render(request,'main/index.html')
@@ -110,3 +113,29 @@ def psychologist(request):
     else:
         form = SignUpForm1()
     return render(request, 'main/signup_psychologist.html', {'form': form})
+
+
+def depression(string):
+    answer = mnb.predict(tfidf.transform([str(string)]))
+    return str(answer) == '[1]'
+
+
+
+def facebook_login(request):
+    user = request.user
+    facebook_login = user.social_auth.get(provider='facebook')
+    access_token = facebook_login.extra_data['access_token']
+    r = requests.get(url = 'https://graph.facebook.com/v4.0/me?fields=id%2Cname%2Cposts&access_token={}'.format(access_token))
+    data = r.json()
+    request.session['username'] = data['name']
+    if data['posts']['data'][0]['message'] != None:
+        d = depression(data['posts']['data'][0]['message'])
+        if(d==True):
+            return redirect('/sad')
+    return redirect('/happy')
+
+def happy(request):
+    return render(request,'main/happy.html')
+
+def sad(request):
+    return render(request,'main/sad.html')
